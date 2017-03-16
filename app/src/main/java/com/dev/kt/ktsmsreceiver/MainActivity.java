@@ -65,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
         mRxPermissions = new RxPermissions(this);
 
         if (!PermissionHelper.hasSMSPermission(this)) {
+            mViewMain.setVisibility(View.GONE);
             askPermission();
         } else {
+            mViewPermission.setVisibility(View.GONE);
             if (DeviceManager.isServiceRunning(this, SmsService.class)) {
                 changeViewToDisableService();
             } else {

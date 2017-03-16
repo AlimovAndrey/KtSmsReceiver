@@ -21,30 +21,26 @@ public class FtpHelper {
 
     public static void storeFile(final String file_name, final String file_local_path) {
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    FTPClient con = new FTPClient();
-                    con.connect(InetAddress.getByName(HOST));
+        Thread thread = new Thread(() -> {
+            try {
+                FTPClient con = new FTPClient();
+                con.connect(InetAddress.getByName(HOST));
 
-                    if (con.login(LOGIN, PASSWORD)) {
-                        con.enterLocalPassiveMode(); // important!
-                        con.setFileType(FTP.BINARY_FILE_TYPE);
+                if (con.login(LOGIN, PASSWORD)) {
+                    con.setFileType(FTP.BINARY_FILE_TYPE);
 
-                        String data = file_local_path + file_name;
+                    String data = file_local_path + file_name;
 
-                        FileInputStream in = new FileInputStream(new File(data));
+                    FileInputStream in = new FileInputStream(new File(data));
 
-                        con.storeFile(REMOTE_PATH + file_name, in);
-                        in.close();
-                        con.logout();
-                        con.disconnect();
-                    }
+                    con.storeFile(REMOTE_PATH + file_name, in);
+                    in.close();
+                    con.logout();
+                    con.disconnect();
                 }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
         });
         thread.start();
