@@ -42,13 +42,10 @@ public class SmsService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Thread newThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                IntentFilter filter = new IntentFilter(SMS_ACTION);
-                filter.setPriority(100);
-                registerReceiver(mSmsReceiver, filter);
-            }
+        Thread newThread = new Thread(() -> {
+            IntentFilter filter = new IntentFilter(SMS_ACTION);
+            filter.setPriority(100);
+            registerReceiver(mSmsReceiver, filter);
         });
         newThread.start();
         return Service.START_STICKY;

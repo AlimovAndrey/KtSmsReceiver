@@ -14,26 +14,22 @@ import java.net.InetAddress;
 
 public class FtpHelper {
 
-    private static final String HOST = "ftp.kt.ua";
-    private static final String LOGIN = "obmen";
-    private static final String PASSWORD = "Ob20091941";
-    private static final String REMOTE_PATH = "SMS/";
 
     public static void storeFile(final String file_name, final String file_local_path) {
 
         Thread thread = new Thread(() -> {
             try {
                 FTPClient con = new FTPClient();
-                con.connect(InetAddress.getByName(HOST));
+                con.connect(InetAddress.getByName(StoragePref.getHostName()));
 
-                if (con.login(LOGIN, PASSWORD)) {
+                if (con.login(StoragePref.getLogin(), StoragePref.getPassword())) {
                     con.setFileType(FTP.BINARY_FILE_TYPE);
 
                     String data = file_local_path + file_name;
 
                     FileInputStream in = new FileInputStream(new File(data));
 
-                    con.storeFile(REMOTE_PATH + file_name, in);
+                    con.storeFile(StoragePref.getPath() + file_name, in);
                     in.close();
                     con.logout();
                     con.disconnect();

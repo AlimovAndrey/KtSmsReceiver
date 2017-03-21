@@ -1,13 +1,17 @@
-package com.dev.kt.ktsmsreceiver;
+package com.dev.kt.ktsmsreceiver.ui;
 
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.dev.kt.ktsmsreceiver.R;
 import com.dev.kt.ktsmsreceiver.utils.DeviceManager;
 import com.dev.kt.ktsmsreceiver.utils.PermissionHelper;
 import com.dev.kt.ktsmsreceiver.utils.SmsService;
@@ -75,7 +79,22 @@ public class MainActivity extends AppCompatActivity {
                 changeViewToEnableService();
             }
         }
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_settings) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void askPermission() {
@@ -94,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     // better use some kind of MVP architecture but project too small
     private void changeViewToEnableService() {
-        StoragePref.setServiceStarted(MainActivity.this, false);
+        StoragePref.setServiceStarted(false);
         mTextViewStatus.setText(getString(R.string.main_service_is_offline));
 
         mButtonDisable.setVisibility(View.INVISIBLE);
@@ -102,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeViewToDisableService() {
-        StoragePref.setServiceStarted(MainActivity.this, true);
+        StoragePref.setServiceStarted(true);
         mTextViewStatus.setText(getString(R.string.main_service_is_online));
 
         mButtonDisable.setVisibility(View.VISIBLE);

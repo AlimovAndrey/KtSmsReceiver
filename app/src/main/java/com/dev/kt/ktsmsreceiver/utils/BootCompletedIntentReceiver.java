@@ -15,7 +15,7 @@ public class BootCompletedIntentReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (PERMISSION_BOOT_NAME.equals(intent.getAction())) {
-            if (StoragePref.isServiceStarted(context)) {
+            if (StoragePref.isServiceStarted()) {
                 Intent pushIntent = new Intent(context, SmsService.class);
                 context.startService(pushIntent);
             }

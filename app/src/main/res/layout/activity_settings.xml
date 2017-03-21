@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.dev.kt.ktsmsreceiver.ui.SettingsActivity">
+
+    <TextView
+        android:id="@+id/text_view_title_ftp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_title_ftp"
+        android:textColor="#000000"
+        android:textSize="17sp"/>
+
+    <FrameLayout
+        android:id="@+id/container_ftp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_title_ftp"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/text_view_ftp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="ftp.kt.ua"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@mipmap/ic_edit"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_view_title_path_ftp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_ftp"
+        android:layout_marginTop="8dp"
+        android:text="@string/dialog_title_path_ftp"
+        android:textColor="#000000"
+        android:textSize="17sp"/>
+
+    <FrameLayout
+        android:id="@+id/container_path_ftp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_title_path_ftp"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/text_view_path_ftp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="SMS/"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@mipmap/ic_edit"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_view_title_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_path_ftp"
+        android:layout_marginTop="8dp"
+        android:text="@string/dialog_title_login"
+        android:textColor="#000000"
+        android:textSize="17sp"/>
+
+    <FrameLayout
+        android:id="@+id/container_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_title_login"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@mipmap/ic_edit"/>
+
+        <TextView
+            android:id="@+id/text_view_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="admin"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_view_title_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/container_login"
+        android:layout_marginTop="8dp"
+        android:text="@string/dialog_title_password"
+        android:textColor="#000000"
+        android:textSize="17sp"/>
+
+    <FrameLayout
+        android:id="@+id/container_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_title_password"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/checkbox_password"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/text_view_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:inputType="textPassword"
+            android:text="1234567890"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@mipmap/ic_edit"/>
+
+    </FrameLayout>
+
+    <CheckBox
+        android:id="@+id/checkbox_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_view_title_password"
+        android:layout_marginTop="-5dp"/>
+
+
+</RelativeLayout>

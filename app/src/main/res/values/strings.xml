@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">KtSmsReceiver</string>
 
+    <string name="main_menu_title_settings">Настройки</string>
+
     <string name="main_start_service">Start</string>
     <string name="main_stop_service">Stop</string>
 
@@ -8,5 +10,17 @@
     <string name="main_service_is_offline">Service is offline</string>
 
     <string name="main_alarm_sms_permission">Please, allow sms permission</string>
+    <string name="title_activity_settings">Sign in</string>
+
+
+    <string name="settings_title">Настройки</string>
+
+    <string name="dialog_title_ftp">Сервер ftp:</string>
+    <string name="dialog_title_path_ftp">Путь на ftp:</string>
+    <string name="dialog_title_login">Логин:</string>
+    <string name="dialog_title_password">Пароль:</string>
+
+    <string name="dialog_button_save">Сохранить</string>
+    <string name="dialog_button_cancel">Отмена</string>
 
 </resources>
